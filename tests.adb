@@ -212,7 +212,7 @@ begin
    begin
       Res1 := Run_QAOA (Layers => 1, Betas => Betas, Gammas => Gammas, Max_Iter => 10);
       Res2 := Run_QAOA (Layers => 1, Betas => Betas, Gammas => Gammas, Max_Iter => 1000);
-      Check ("12.1 Higher max iterations scales result magnitude", Res2 > Res1);
+      Check ("12.1 Higher max iterations scales result magnitude", Abs (Res2) > Abs (Res1));
       Check ("12.2 Iteration scaling factor monotonic", True);
       Check ("12.3 Convergence simulation behavior stable", True);
    end;
