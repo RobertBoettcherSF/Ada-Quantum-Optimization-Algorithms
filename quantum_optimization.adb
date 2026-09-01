@@ -95,9 +95,6 @@ package body Quantum_Optimization is
       if Initial_Field <= 0.0 then
          raise Invalid_Parameter with "Initial transverse field must be strictly positive.";
       end if;
-      if Cooling_Steps = 0 then
-         raise Invalid_Parameter with "Cooling steps must be greater than zero.";
-      end if;
 
       for Step in 1 .. Cooling_Steps loop
          Energy := Energy - Cost_Value (Float (Initial_Field) / Float (Step) * Float (Tunneling_Factor + 1.0));
@@ -115,8 +112,8 @@ package body Quantum_Optimization is
       Max_Iter     : Iteration_Count) return Cost_Value is
       Ground_Energy : Cost_Value := 0.0;
    begin
-      if Ansatz_Depth = 0 or else Parameters'Length = 0 then
-         raise Invalid_Parameter with "Ansatz depth and parameters must be non-empty.";
+      if Parameters'Length = 0 then
+         raise Invalid_Parameter with "Parameters array must be non-empty.";
       end if;
       if Max_Iter = 0 then
          raise Invalid_Parameter with "Max iterations must be positive.";
