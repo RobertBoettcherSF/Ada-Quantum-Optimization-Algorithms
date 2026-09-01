@@ -103,10 +103,6 @@ package body Quantum_Optimization is
          Energy := Energy - Cost_Value (Float (Initial_Field) / Float (Step) * Float (Tunneling_Factor + 1.0));
       end loop;
 
-      if Energy < -1_000_000.0 then
-         Energy := -1_000_000.0;
-      end if;
-
       return Energy;
    end Run_Quantum_Annealing;
 
