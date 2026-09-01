@@ -35,10 +35,8 @@ begin
    Put_Line ("TEST 2 — Standard QAOA Edge Cases & Preconditions");
    declare
       Betas  : constant Angle_Array := [0.5, 1.0];
-      Gammas : constant Angle_Array := [0.2, 0.8];
       Ex_Raised : Boolean := False;
    begin
-      pragma Unused (Gammas);
       begin
          declare
             Bad_Gammas : constant Angle_Array := [0.2, 0.8, 0.9];
