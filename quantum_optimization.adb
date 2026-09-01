@@ -28,7 +28,7 @@ package body Quantum_Optimization is
                             - Cos (Float (Gammas (Gammas'First + I - 1)) * Factor));
       end loop;
 
-      Cumulative_Cost := Cumulative_Cost * (1.0 + (Float (Max_Iter) / 1000.0));
+      Cumulative_Cost := Cost_Value (Float (Cumulative_Cost) * (1.0 + (Float (Max_Iter) / 1000.0)));
       return Cumulative_Cost;
    end Run_QAOA;
 
